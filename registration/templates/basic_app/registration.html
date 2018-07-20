@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% extends 'basic_app/base.html'%}
+ {%block body_block%}
+    <div class="container">
+      <div class="jumbotron">
+        {%if registered %}
+          <h1>Thank You for registering</h1>
+        {%else%}
+        <form method="post" enctype="multipart/form-data">
+          {{user_form.as_ul}}
+          {{profile_form.as_ul}} 
+          {%csrf_token%}
+          <input type="submit" class = "btn btn-primary" name="" value="SUBMIT">
+
+        </form>
+        {%endif%}
+
+      </div>
+
+    </div>
+
+ {%endblock%}
